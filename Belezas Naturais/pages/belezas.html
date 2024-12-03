@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/belezas.css">
+    <title>Belezas Naturais de Bali</title>
+</head>
+<body>
+    <header>
+        <h1>Belezas Naturais de Bali</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Introdução</a></li>
+                <li><a href="belezas.html">Belezas Naturais</a></li>
+                <li><a href="dicas.html">Dicas para Turistas</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+      <section>
+        <h2>Galeria de Imagens</h2>
+        <div class="gallery">
+            <img src="/assets/images/Praia.jpg" alt="Praia em Bali" onclick="openModal(this.src)">
+            <img src="/assets/images/Arrozais.jpg" alt="Arrozais em Bali" onclick="openModal(this.src)">
+            <img src="/assets/images/Templo.jpg" alt="Templo em Bali" onclick="openModal(this.src)">
+        </div>
+    
+        <div id="imageModal" class="modal" style="display: none;">
+            <span class="close" onclick="closeModal()">×</span>
+            <img class="modal-content" id="modalImage">
+        </div>
+    </section>
+    
+      <main>
+        <section>
+            <h2>Belezas Naturais de Bali</h2>
+            <button onclick="toggleText()">Mostrar/Esconder Detalhes</button>
+            <p id="info" style="display: none;">Bali é conhecida por suas praias paradisíacas...</p>
+        </section>
+    </main>
+    <script>
+        function toggleText() {
+            const info = document.getElementById("info");
+            info.style.display = info.style.display === "none" ? "block" : "none";
+        }
+    </script>
+    
+        <section>
+            <h2>Belezas Naturais</h2>
+            <article>
+                <h3>Parque Nacional de Bali Barat</h3>
+                <p>Um dos principais parques da ilha, oferecendo uma rica biodiversidade, trilhas e vistas deslumbrantes do mar.</p>
+                <img width="1000" height="" src="/assets/images/ParqueNacionaldeBaliBarat.pnj.jpeg" alt="Parque Nacional de Bali Barat">
+
+            </article>
+            <article>
+                <h3>Monte Agung</h3>
+                <p>A montanha mais alta de Bali, ideal para trekking e famosa por seu nascer do sol espetacular.</p>
+                <img width="1000" height="" src="/assets/images/MonteAgung.pnj.webp" alt="Monte Agung">
+            </article>
+            <article>
+                <h3>Rio Ayung</h3>
+                <p>O maior rio de Bali, conhecido por suas oportunidades de rafting e vistas de exuberante vegetação.</p>
+                <img width="1000" height="" src="/assets/images/RioAyung.png.png" alt="Rio Ayung"> 
+            </article>
+        </section>
+    </main>
+    <main><section>
+      <h2>Deixe seu Feedback</h2>
+      <form id="feedbackForm" onsubmit="return validateForm()">
+          <label for="name">Nome:</label>
+          <input type="text" id="name" name="name" required>
+          <br>
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" required>
+          <br>
+          <label for="message">Mensagem:</label>
+          <textarea id="message" name="message" required></textarea>
+          <br>
+          <button type="submit">Enviar</button>
+      </form>
+  </section>
+  <script>
+      function validateForm() {
+          const name = document.getElementById("name").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const message = document.getElementById("message").value.trim();
+  
+          if (!name || !email || !message) {
+              alert("Por favor, preencha todos os campos.");
+              return false;
+          }
+  
+          const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+          if (!emailPattern.test(email)) {
+              alert("Por favor, insira um e-mail válido.");
+              return false;
+          }
+  
+          alert("Feedback enviado com sucesso!");
+          return true;
+      }
+  </script>
+  </main>
+    <footer>
+        <p>© 2024 Feito por Thiago Ramos/Thierry Raphael</p>
+    </footer>
+    <script>
+      function openModal(src) {
+          const modal = document.getElementById("imageModal");
+          document.getElementById("modalImage").src = src;
+          modal.style.display = "block";
+      }
+      function closeModal() {
+          const modal = document.getElementById("imageModal");
+          modal.style.display = "none";
+      }
+  </script>
+  
+</body>
+</html>
